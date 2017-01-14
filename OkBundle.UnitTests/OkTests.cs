@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using NUnit.Framework.Constraints;
+﻿using NUnit.Framework;
 using Should;
 
 namespace OkBundle.UnitTests
@@ -51,6 +45,19 @@ namespace OkBundle.UnitTests
             Ok.If(predicate)
                 .Do(() => { --result; })
                 .Else(() => { ++result; });
+
+            result.ShouldEqual(expected);
+        }
+        [TestCase(true, 2)]
+        [TestCase(false, 1)]
+        public void If_Perform_Else_If_Block_According_To_Predicate(bool predicate, int expected)
+        {
+            var result = 1;
+
+            Ok.If(false)
+                .Do(() => { result = 0; })
+                .ElseIf(predicate)
+                .Do(() => { result = 2;  });
 
             result.ShouldEqual(expected);
         }
