@@ -1,0 +1,10 @@
+C:\_source\OkBundle\OkBundle\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.csprojResolveAssemblyReference.cache
+C:\_source\OkBundle\OkBundle\OkBundle.UnitTests\bin\Debug\OkBundle.UnitTests.dll
+C:\_source\OkBundle\OkBundle\OkBundle.UnitTests\bin\Debug\OkBundle.UnitTests.pdb
+C:\_source\OkBundle\OkBundle\OkBundle.UnitTests\bin\Debug\nunit.framework.dll
+C:\_source\OkBundle\OkBundle\OkBundle.UnitTests\bin\Debug\OkBundle.dll
+C:\_source\OkBundle\OkBundle\OkBundle.UnitTests\bin\Debug\Should.dll
+C:\_source\OkBundle\OkBundle\OkBundle.UnitTests\bin\Debug\OkBundle.pdb
+C:\_source\OkBundle\OkBundle\OkBundle.UnitTests\bin\Debug\nunit.framework.xml
+C:\_source\OkBundle\OkBundle\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.dll
+C:\_source\OkBundle\OkBundle\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.pdb
