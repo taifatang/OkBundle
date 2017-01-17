@@ -18,3 +18,13 @@ C:\_source\OkBundle\OkBundle.UnitTests\bin\Debug\nunit.framework.xml
 C:\_source\OkBundle\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.csprojResolveAssemblyReference.cache
 C:\_source\OkBundle\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.dll
 C:\_source\OkBundle\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.pdb
+D:\Projects\OkBundle\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.csprojResolveAssemblyReference.cache
+D:\Projects\OkBundle\OkBundle.UnitTests\bin\Debug\OkBundle.UnitTests.dll
+D:\Projects\OkBundle\OkBundle.UnitTests\bin\Debug\OkBundle.UnitTests.pdb
+D:\Projects\OkBundle\OkBundle.UnitTests\bin\Debug\nunit.framework.dll
+D:\Projects\OkBundle\OkBundle.UnitTests\bin\Debug\OkBundle.dll
+D:\Projects\OkBundle\OkBundle.UnitTests\bin\Debug\Should.dll
+D:\Projects\OkBundle\OkBundle.UnitTests\bin\Debug\OkBundle.pdb
+D:\Projects\OkBundle\OkBundle.UnitTests\bin\Debug\nunit.framework.xml
+D:\Projects\OkBundle\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.dll
+D:\Projects\OkBundle\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.pdb

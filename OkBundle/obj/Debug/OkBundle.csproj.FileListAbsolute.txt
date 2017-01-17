@@ -3,3 +3,7 @@ C:\_source\OkBundle\OkBundle\bin\Debug\OkBundle.pdb
 C:\_source\OkBundle\OkBundle\obj\Debug\OkBundle.csprojResolveAssemblyReference.cache
 C:\_source\OkBundle\OkBundle\obj\Debug\OkBundle.dll
 C:\_source\OkBundle\OkBundle\obj\Debug\OkBundle.pdb
+D:\Projects\OkBundle\OkBundle\bin\Debug\OkBundle.dll
+D:\Projects\OkBundle\OkBundle\bin\Debug\OkBundle.pdb
+D:\Projects\OkBundle\OkBundle\obj\Debug\OkBundle.dll
+D:\Projects\OkBundle\OkBundle\obj\Debug\OkBundle.pdb
