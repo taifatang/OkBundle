@@ -1,29 +1,23 @@
+using System.Dynamic;
+using OkBundle.Results;
+
 namespace OkBundle
 {
-    public class OkResult
+    public class OkResult<T> where T : Result
     {
-        public bool Predicate { get; private set; }
+        public T Result { get; private set; }
 
-        public OkResult(bool predicate)
+        public OkResult(T result)
         {
-            Predicate = predicate;
-        }
-        public static OkResult Create(bool predicate)
-        {
-            return new OkResult(predicate);
+            Result = result;
         }
     }
-    public class OkSwitchResult
-    {
-        public bool SwitchItem { get; private set; }
 
-        public OkSwitchResult(bool switchItem)
+    public static class ResultFactory
+    {
+        public static OkResult<T> Create<T>(T result) where T : Result
         {
-            SwitchItem = switchItem;
-        }
-        public static OkResult Create(bool switchItem)
-        {
-            return new OkSwitchResult(switchItem);
+            return new OkResult<T>(result);
         }
     }
 }

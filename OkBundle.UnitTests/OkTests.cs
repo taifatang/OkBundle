@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using Should;
 
 namespace OkBundle.UnitTests
@@ -17,7 +18,7 @@ namespace OkBundle.UnitTests
         public void Should_Return_expected_When_Input_Is_Given(bool input, bool expected)
         {
             var okResult = Ok.If(input);
-            okResult.Predicate.ShouldEqual(expected);
+            okResult.Result.Predicate.ShouldEqual(expected);
         }
         [TestCase(true)]
         [TestCase(false)]
@@ -48,18 +49,57 @@ namespace OkBundle.UnitTests
         {
             var isExcuted = false;
 
-            Ok
-                .If(false).Do(() => { isExcuted = false; })
-                .ElseIf(predicate).Do(() => { isExcuted = true;  });
+            Ok.If(false).Do(() => { isExcuted = false; })
+                .ElseIf(predicate).Do(() => { isExcuted = true; });
 
             isExcuted.ShouldEqual(predicate);
         }
-        public void Should_Return_Switch_Result_When_Given_Switch_Object(bool predicate)
+        [TestCase(0)]
+        [TestCase(true)]
+        [TestCase("abc")]
+        public void Should_Return_Switch_Result_When_Given_An_Switch_Object(Object anyObject)
         {
-            var customValue = 0;
-            var result = Ok.Switch(customValue);
+            var okResult = Ok.Switch(anyObject);
 
-            isExcuted.ShouldEqual(predicate);
+            okResult.Result.Switcheroo.ShouldEqual(anyObject);
+        }
+        [TestCase("matchedMe", "matchedMe", true)]
+        [TestCase("matchedMe", "shouldNotExecuteDoBlock", false)]
+        [TestCase(123, 123, true)]
+        [TestCase(456, 789, false)]
+        public void Should_Return_Correct_Execute_Property_When_Compared_Objects(Object object1, Object object2, bool expected)
+        {
+            var switchResult = Ok.Switch(object1).Case(object2);
+
+            switchResult.Result.Execute.ShouldEqual(expected);
+        }
+        [TestCase("matchedMe", "matchedMe", true)]
+        [TestCase("matchedMe", "shouldNotExecuteDoBlock", false)]
+        public void Should_Perform_Do_Block_When_Case_Matched(Object object1, Object object2, bool expected)
+        {
+            var isExecuted = false;
+
+            Ok.Switch(object1)
+                .Case(object2).Do(() => { isExecuted = true; });
+
+            isExecuted.ShouldEqual(expected);
+        }
+        [TestCase("matchedMe", "shouldNotExecuteDoBlock", "shouldNotExecuteDoBlock", 0)]
+        [TestCase("matchedMe", "matchedMe", "shouldNotExecuteDoBlock", 1)]
+        [TestCase("matchedMe", "case1NotMatched", "matchedMe", 2)]
+        [TestCase(TestEnum.CaseZero, TestEnum.CaseOne, TestEnum.CaseTwo, 0)]
+        [TestCase(TestEnum.CaseOne, TestEnum.CaseOne, TestEnum.CaseTwo, 1)]
+        [TestCase(TestEnum.CaseTwo, TestEnum.CaseZero, TestEnum.CaseTwo, 2)]
+        [TestCase(TestEnum.CaseFour, TestEnum.CaseZero, TestEnum.CaseTwo, 0)]
+        public void Should_Skip_Do_Block_When_Case_Failed_To_Matched(Object object1, Object object2, Object object3, int expected)
+        {
+            var executedBlock = 0;
+
+            Ok.Switch(object1)
+                .Case(object2).Do(() => { executedBlock = 1; })
+                .Case(object3).Do(() => { executedBlock = 2; });
+
+            executedBlock.ShouldEqual(expected);
         }
     }
 }
