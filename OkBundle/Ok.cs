@@ -8,29 +8,33 @@ namespace OkBundle
 {
     public static class Ok
     {
-        public static bool If(bool predicate)
+        public static OkResult If(bool predicate)
         {
-            return predicate;
+            return OkResult.Create(predicate);
         }
-        public static bool Do(this bool predicate, Action action)
+        public static OkResult Do(this OkResult result, Action action)
         {
-            if (predicate)
+            if (result.Predicate == true)
             {
                 action();
             }
-            return predicate;
+            return result;
         }
-        public static bool ElseIf(this bool predicate, bool nextPredicate)
+        public static OkResult ElseIf(this OkResult result, bool nextPredicate)
         {
-            return nextPredicate;
+            return OkResult.Create(nextPredicate);
         }
-        public static void Else(this bool predicate, Action action)
+        public static void Else(this OkResult result, Action action)
         {
-            if (predicate == false)
+            if (result.Predicate == false)
             {
                 action();
             }
         }
-     
+
+        public static OkSwitchResult Switch(any)
+        {
+            
+        }
     }
 }
