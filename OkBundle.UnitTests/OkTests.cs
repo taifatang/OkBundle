@@ -35,7 +35,7 @@ namespace OkBundle.UnitTests
         [TestCase(false)]
         public void Should_Perform_Else_Block_Base_On_Predicate(bool predicate)
         {
-            var isExcuted = false;
+            var isExcuted = !predicate;
 
             Ok
                 .If(predicate).Do(() => { isExcuted = true; })
