@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IPredicate.cs" />
+    <Compile Include="OkObject\OkObject.cs" />
     <Compile Include="Results\If.cs" />
     <Compile Include="Ok.cs" />
-    <Compile Include="OkResult.cs" />
+    <Compile Include="Results\OkResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\Result.cs" />
     <Compile Include="Results\Switch.cs" />

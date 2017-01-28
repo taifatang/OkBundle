@@ -1,7 +1,6 @@
-using System.Dynamic;
-using OkBundle.Results;
+using OkBundle.Interfaces;
 
-namespace OkBundle
+namespace OkBundle.Results
 {
     public class OkResult<T> where T : Result
     {
@@ -11,6 +10,7 @@ namespace OkBundle
         {
             Result = result;
         }
+
     }
 
     public static class ResultFactory

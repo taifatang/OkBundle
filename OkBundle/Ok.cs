@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OkBundle.OkObject;
 using OkBundle.Results;
 
 namespace OkBundle
@@ -11,22 +7,18 @@ namespace OkBundle
     public static class Ok
     {
         //If
-        public static OkResult<If> If(bool predicate)
+        public static OkObject<If> If(bool predicate)
         {
-            var ifResult = new If
-            {
-                Predicate = predicate
-            };
-
-            return ResultFactory.Create(ifResult);
+            var ifObject = new If(predicate);
+            return OkObjectFactory.Create(ifObject);
         }
-        public static OkResult<If> Do(this OkResult<If> okResult, Action action)
+        public static OkResult<If> Do(this OkObject<If> ifObject, Action action)
         {
-            if (okResult.Result.Predicate == true)
+            if (ifObject.Get().Predicate)
             {
                 action();
             }
-            return okResult;
+            return ResultFactory.Create(ifObject.Get());
         }
         public static OkResult<If> ElseIf(this OkResult<If> okResult, bool nextPredicate)
         {
@@ -41,32 +33,40 @@ namespace OkBundle
             }
         }
         //Switch
-        public static OkResult<Switch<T>> Switch<T>(T item)
+        // TODO: Replace OkResult with OkPredicate or OkObject to allow fluentAPI more Robust
+        public static OkObject<Switch<T>> Switch<T>(T item)
         {
-            var switchResult = new Switch<T>
-            {
-                Switcheroo = item
-            };
-            return ResultFactory.Create(switchResult);
+            //var switchObject = OkSwitch<T>.SetObject(item);
+            var switchObject = new Switch<T>(item);
+         
+            return OkObjectFactory.Create(switchObject);
         }
 
-        public static OkResult<Switch<T>> Case<T>(this OkResult<Switch<T>> switchResult, T toBeCompared)
+        public static OkResult<Switch<T>> Case<T>(this OkObject<Switch<T>> switchObject, T toBeCompared)
         {
-            if (switchResult.Result.Switcheroo.Equals(toBeCompared))
+            if (switchObject.Get().Equals(toBeCompared))
             {
-                switchResult.Result.Execute = true;
+                switchObject.Get().Execute = true;
             }
-            return switchResult;
+            return ResultFactory.Create(switchObject.Get());
         }
 
-        public static OkResult<Switch<T>> Do<T>(this OkResult<Switch<T>> switchResult, Action action)
+        public static OkObject<Switch<T>> Do<T>(this OkResult<Switch<T>> switchResult, Action action)
         {
             if (switchResult.Result.Execute)
             {
-                switchResult.Result.Execute = false;
+                action();
+                switchResult.Result.InhibitNextExecution();
+            }
+            return OkObjectFactory.Create(switchResult.Result);
+        }
+
+        public static void Default<T>(this OkObject<Switch<T>> switchObject, Action action)
+        {
+            if (switchObject.Get().ExecuteDefault)
+            {
                 action();
             }
-            return switchResult;
         }
         //While
     }

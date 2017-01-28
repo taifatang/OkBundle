@@ -17,8 +17,8 @@ namespace OkBundle.UnitTests
         [TestCase(true || true || false, true)]
         public void Should_Return_expected_When_Input_Is_Given(bool input, bool expected)
         {
-            var okResult = Ok.If(input);
-            okResult.Result.Predicate.ShouldEqual(expected);
+            var okObject = Ok.If(input);
+            okObject.Get().Predicate.ShouldEqual(expected);
         }
         [TestCase(true)]
         [TestCase(false)]
@@ -48,7 +48,6 @@ namespace OkBundle.UnitTests
         public void Should_Perform_Else_If_Block_Base_On_Predicate(bool predicate)
         {
             var isExcuted = false;
-
             Ok.If(false).Do(() => { isExcuted = false; })
                 .ElseIf(predicate).Do(() => { isExcuted = true; });
 
@@ -100,6 +99,31 @@ namespace OkBundle.UnitTests
                 .Case(object3).Do(() => { executedBlock = 2; });
 
             executedBlock.ShouldEqual(expected);
+        }
+        [Test]
+        public void Should_Execute_Default_Block_When_No_Case_Matched()
+        {
+            var executedBlock = 0;
+
+            Ok.Switch(1)
+                .Case(2).Do(() => { executedBlock = 1; })
+                .Case(3).Do(() => { executedBlock = 2; })
+                .Default( () => { executedBlock = 3;  });
+
+            executedBlock.ShouldEqual(3);
+        }
+        [Test]
+        public void Should_Not_Execute_Default_Block_When_Case_Matched()
+        {
+            var executedBlock = 0;
+
+            Ok.Switch(1)
+                .Case(1).Do(() => { executedBlock = 1; })
+                .Case(3).Do(() => { executedBlock = 2; })
+                .Default(() => { executedBlock = 3; });
+
+            executedBlock.ShouldEqual(1);
+            executedBlock.ShouldNotEqual(3);
         }
     }
 }
