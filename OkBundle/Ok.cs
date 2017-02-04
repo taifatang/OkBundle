@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OkBundle.Results;
 
 namespace OkBundle
@@ -63,11 +58,29 @@ namespace OkBundle
         {
             if (switchResult.Result.Execute)
             {
-                switchResult.Result.Execute = false;
                 action();
+                switchResult.Result.InhibitNextExecution();
             }
             return switchResult;
         }
+        public static void Default<T>(this OkResult<Switch<T>> switchResult, Action action)
+        {
+            if (switchResult.Result.ExecuteDefault)
+            {
+                action();
+            }
+        }
         //While
+        public static OkResult<While> While(bool predicate)
+        {
+            return ResultFactory.Create(new While(predicate));
+        }
+        //public static void Do(this OkResult<While> whileResult, Action action)
+        //{
+        //    if (whileResult.Result.Predicate)
+        //    {
+        //        action();
+        //    }
+        //}
     }
 }

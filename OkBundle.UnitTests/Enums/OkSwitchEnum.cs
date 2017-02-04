@@ -1,6 +1,6 @@
-namespace OkBundle.UnitTests
+namespace OkBundle.UnitTests.Enums
 {
-    public enum TestEnum
+    public enum OkSwitchEnum
     {
         CaseZero,
         CaseOne,
