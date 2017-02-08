@@ -28,3 +28,15 @@ D:\Projects\OkBundle\OkBundle.UnitTests\bin\Debug\OkBundle.pdb
 D:\Projects\OkBundle\OkBundle.UnitTests\bin\Debug\nunit.framework.xml
 D:\Projects\OkBundle\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.dll
 D:\Projects\OkBundle\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.pdb
+C:\Users\taifa.tang\Desktop\ok\OkBundle.UnitTests\bin\Debug\OkBundle.UnitTests.dll
+C:\Users\taifa.tang\Desktop\ok\OkBundle.UnitTests\bin\Debug\OkBundle.UnitTests.pdb
+C:\Users\taifa.tang\Desktop\ok\OkBundle.UnitTests\bin\Debug\nunit.framework.dll
+C:\Users\taifa.tang\Desktop\ok\OkBundle.UnitTests\bin\Debug\OkBundle.dll
+C:\Users\taifa.tang\Desktop\ok\OkBundle.UnitTests\bin\Debug\Should.dll
+C:\Users\taifa.tang\Desktop\ok\OkBundle.UnitTests\bin\Debug\System.Net.Http.dll
+C:\Users\taifa.tang\Desktop\ok\OkBundle.UnitTests\bin\Debug\OkBundle.pdb
+C:\Users\taifa.tang\Desktop\ok\OkBundle.UnitTests\bin\Debug\nunit.framework.xml
+C:\Users\taifa.tang\Desktop\ok\OkBundle.UnitTests\bin\Debug\System.Net.Http.xml
+C:\Users\taifa.tang\Desktop\ok\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\taifa.tang\Desktop\ok\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.dll
+C:\Users\taifa.tang\Desktop\ok\OkBundle.UnitTests\obj\Debug\OkBundle.UnitTests.pdb
