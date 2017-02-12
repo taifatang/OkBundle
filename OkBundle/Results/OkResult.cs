@@ -1,11 +1,10 @@
-using System.Dynamic;
-using OkBundle.Results;
+using OkBundle.Interfaces;
 
-namespace OkBundle
+namespace OkBundle.Results
 {
     public class OkResult<T> where T : Result
     {
-        public T Result { get; private set; }
+        public T Result { get; set; }
 
         public OkResult(T result)
         {

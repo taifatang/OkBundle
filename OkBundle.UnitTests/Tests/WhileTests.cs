@@ -23,18 +23,19 @@ namespace OkBundle.UnitTests.Tests
 
             isExecuted.ShouldBeTrue();
         }
-        //[Test]
-        //public void Should_Execute_Twice()
-        //{
-        //    var runCycles = 0;
-        //    var tracker = 2;
-        //    Ok
-        //        .While(tracker > 0).Do(() => {
-        //            runCycles++;
-        //            tracker--;
-        //        });
+        [Test]
+        public void Should_Execute_Twice()
+        {
+            var runCycles = 0;
+            var tracker = 2;
+            //Ok
+            //    .While(ref tracker > 0, () =>
+            //    {
+            //        runCycles++;
+            //        tracker--;
+            //    });
 
-        //    runCycles.ShouldEqual(2);
-        //}
+            runCycles.ShouldEqual(2);
+        }
     }
 }
