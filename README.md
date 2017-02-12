@@ -40,10 +40,57 @@ Ok
   .Case(RandomEnum.Food).Do( () => { Console.WriteLine("I am executed!") } )
 ```
 ###While
-In Progress ETA - End of Jan
+
+Concept phase, Work in progress
+
+`While()` will take any initialize: `int`, conditions: `IPredicate`, Action: `Action<T>`
+
+The follow command are available `While`, `Do`
+```sh
+IPredicate conditions = new PredicateBuilder.Build(condition1, condition2, (c1, c2) => { c > c2})
+
+Ok
+  .While(conditions).Do(() => {})
+```
+
 ###Foreach
-Up Next ETA - Begining of Feb
+
+`ForEach()` will take an IEnumerable, and a delegate
+
+The follow command are available `ForEach`, 
+```sh
+Ok
+  .ForEach(IEnumerable source, s => {})
+```
+Example: 
+```sh
+Ok
+  .ForEach(products, p => { Console.WriteLine( p.ToString() ) } )
+```
+
 ###For
-Up Next ETA - Mid of Feb
+
+Work in progress
+
+`For()` will take any initialize: `int`, conditions: `IPredicate`, Action: `Action<T>`
+
+The follow command are available `For`, `Do`
+```sh
+IPredicate conditions = new PredicateBuilder.Build(GreaterThan(10))
+
+Ok
+  .For(0, conditions, i => i++).Do(() => {})
+```
+
+Example: 
+```sh
+IPredicate conditions = new PredicateBuilder.Build(LessThan(10))
+
+Ok
+  .For(0, conditions, i => i++).Do(() => { Console.WriteLine("I am executed 9 times")})
+```
+
 ###More & Improvment
-Up Next
+####PredicateBuilder.Build()
+####Ok.Break()
+####Ok.Continue()
